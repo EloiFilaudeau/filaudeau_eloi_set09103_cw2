@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Beatsprod</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet" />
+    <link href="{{ url_for('static', filename='css/all.min.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/keyboard.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/ion.rangeSlider.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/ion.rangeSlider.skinNice.css') }}">
+
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
+        <div class="container">
+            <a class="navbar-brand" href="{{url_for('root')}}">Beatsprod</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                       <a class="nav-link" href="{{url_for('home')}}">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{url_for('beats')}}">Beats</a>
+                    </li>
+                    <li class="nav-item">
+                       <a class="nav-link" href="{{url_for('genre')}}">Genre</a>
+                    </li>
+                    <li class="nav-item">
+                       <a class="nav-link" href="{{url_for('beatmaker')}}">Beatmaker</a>
+                    </li>
+                    <li class="nav-item active">
+                       <a class="nav-link" href="#">Sampler<span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                       <a class="nav-link" href="{{url_for('logout')}}">{% if session['user'] %}Logout <i class="fa fa-sign-out-alt"></i>{% else %}Login <i class="fa fa-sign-in-alt"></i>{% endif %}</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <br/><br/><br/>
+    <!-- Page Content -->
+    <div class="container sampler">
+        <div class="row">
+            <div id="instrument" class="col-sm-8">
+                <div id="config" class="row">
+                        <div class="col-sm-4">
+                            <div id="audioFilter" class="btn-group" data-toggle="buttons">
+                                <label class="btn btn-dark active"><input type="radio" name="afilters" checked>no filter</label>
+                                <label class="btn btn-dark"><input type="radio" name="afilters">lowpass</label>
+                                <label class="btn btn-dark"><input type="radio" name="afilters">highpass</label>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <input id="audioFilterFreq">
+                        </div>
+                        <div class="col-sm-4">
+                        </div>
+                        <div class="col-sm-6">
+                            <input id="audioGain">
+                        </div>
+                </div>
+                <div id="keyboard" class="row">
+                    <div id="pianoId" class="piano">
+                        <div class="piano-key piano-key-natural piano-key-octave-3 piano-key-C piano-key-B# piano-key-C3 piano-key-B#3" id="piano_key_C3" data-note="C3" data-numb="65">a</div>
+                        <div class="piano-key piano-key-accidental piano-key-octave-3 piano-key-C# piano-key-Db piano-key-C#3 piano-key-Db3" id="piano_key_C#3" data-note="C#3" data-numb="87">w</div>
+                        <div class="piano-key piano-key-natural piano-key-octave-3 piano-key-D piano-key-D3" id="piano_key_D3" data-note="D3" data-numb="83">s</div>
+                        <div class="piano-key piano-key-accidental piano-key-octave-3 piano-key-D# piano-key-Eb piano-key-D#3 piano-key-Eb3" id="piano_key_D#3" data-note="D#3" data-numb="69">e</div>
+                        <div class="piano-key piano-key-natural piano-key-octave-3 piano-key-E piano-key-Fb piano-key-E3 piano-key-Fb3" id="piano_key_E3" data-note="E3" data-numb="68">d</div>
+                        <div class="piano-key piano-key-natural piano-key-octave-3 piano-key-F piano-key-Eb piano-key-F3 piano-key-Eb3" id="piano_key_F3" data-note="F3" data-numb="70">f</div>
+                        <div class="piano-key piano-key-accidental piano-key-octave-3 piano-key-F# piano-key-Gb piano-key-F#3 piano-key-Gb3" id="piano_key_F#3" data-note="F#3" data-numb="84">t</div>
+                        <div class="piano-key piano-key-natural piano-key-octave-3 piano-key-G piano-key-G3" id="piano_key_G3" data-note="G3" data-numb="71">g</div>
+                        <div class="piano-key piano-key-accidental piano-key-octave-3 piano-key-G# piano-key-Ab piano-key-G#3 piano-key-Ab3" id="piano_key_G#3" data-note="G#3" data-numb="89">y</div>
+                        <div class="piano-key piano-key-natural piano-key-octave-3 piano-key-A piano-key-A3" id="piano_key_A3" data-note="A3" data-numb="72">h</div>
+                        <div class="piano-key piano-key-accidental piano-key-octave-3 piano-key-A# piano-key-Bb piano-key-A#3 piano-key-Bb3" id="piano_key_A#3" data-note="A#3" data-numb="85">u</div>
+                        <div class="piano-key piano-key-natural piano-key-octave-3 piano-key-B piano-key-Cb piano-key-B3 piano-key-Cb3" id="piano_key_B3" data-note="B3" data-numb="74">j</div>
+                        <div class="piano-key piano-key-natural piano-key-octave-4 piano-key-C piano-key-B# piano-key-C4 piano-key-B#4" id="piano_key_C4" data-note="C4" data-numb="75">i</div>
+                        <div class="piano-key piano-key-accidental piano-key-octave-4 piano-key-C# piano-key-Db piano-key-C#4 piano-key-Db4" id="piano_key_C#4" data-note="C#4" data-numb="79">k</div>
+                        <div class="piano-key piano-key-natural piano-key-octave-4 piano-key-D piano-key-D4" id="piano_key_D4" data-note="D4" data-numb="76">o</div>
+                        <div class="piano-key piano-key-accidental piano-key-octave-4 piano-key-D# piano-key-Eb piano-key-D#4 piano-key-Eb4" id="piano_key_D#4" data-note="D#4" data-numb="80">l</div>
+                        <div class="piano-key piano-key-natural piano-key-octave-4 piano-key-E piano-key-Fb piano-key-E4 piano-key-Fb4" id="piano_key_E4" data-note="E4" data-numb="186"></div>
+                        <div class="piano-key piano-key-natural piano-key-octave-4 piano-key-F piano-key-Eb piano-key-F4 piano-key-Eb4" id="piano_key_F4" data-note="F4"></div>
+                        <div class="piano-key piano-key-accidental piano-key-octave-4 piano-key-F# piano-key-Gb piano-key-F#4 piano-key-Gb4" id="piano_key_F#4" data-note="F#4"></div>
+                        <div class="piano-key piano-key-natural piano-key-octave-4 piano-key-G piano-key-G4" id="piano_key_G4" data-note="G4"></div>
+                        <div class="piano-key piano-key-accidental piano-key-octave-4 piano-key-G# piano-key-Ab piano-key-G#4 piano-key-Ab4" id="piano_key_G#4" data-note="G#4"></div>
+                        <div class="piano-key piano-key-natural piano-key-octave-4 piano-key-A piano-key-A4" id="piano_key_A4" data-note="A4"></div>
+                        <div class="piano-key piano-key-accidental piano-key-octave-4 piano-key-A# piano-key-Bb piano-key-A#4 piano-key-Bb4" id="piano_key_A#4" data-note="A#4"></div>
+                        <div class="piano-key piano-key-natural piano-key-octave-4 piano-key-B piano-key-Cb piano-key-B4 piano-key-Cb4" id="piano_key_B4" data-note="B4"></div>
+                        <div class="piano-key piano-key-natural piano-key-octave-5 piano-key-C piano-key-B# piano-key-C5 piano-key-B#5" id="piano_key_C5" data-note="C5"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-offset-0 col-sm-4">
+                <div class="midi">
+                    <div class="section">
+                        <div data-key="49" class="key a-style"></div>
+                        <div class="label">
+                            <kbd>1</kbd>
+                            <span class="sound">clap</span>
+                        </div>
+                    </div>
+                    <div class="section">
+                        <div data-key="50" class="key b-style"></div>
+                        <div class="label">
+                            <kbd>2</kbd>
+                            <span class="sound">hihat</span>
+                        </div>
+                    </div>
+                    <div class="section">
+                        <div data-key="51" class="key c-style"></div>
+                        <div class="label">
+                            <kbd>3</kbd>
+                            <span class="sound">kick1</span>
+                        </div>
+                    </div>
+                    <div class="section">
+                        <div data-key="52" class="key d-style"></div>
+                        <div class="label">
+                            <kbd>4</kbd>
+                            <span class="sound">opnhat</span>
+                        </div>
+                    </div>
+                    <div class="section">
+                        <div data-key="53" class="key e-style"></div>
+                        <div class="label">
+                            <kbd>5</kbd>
+                            <span class="sound">kick2</span>
+                        </div>
+                    </div>
+                    <div class="section">
+                        <div data-key="54" class="key f-style"></div>
+                        <div class="label">
+                            <kbd>6</kbd>
+                            <span class="sound">ride</span>
+                        </div>
+                    </div>
+                    <div class="section">
+                        <div data-key="55" class="key g-style"></div>
+                        <div class="label">
+                            <kbd>7</kbd>
+                            <span class="sound">snare</span>
+                        </div>
+                    </div>
+                    <div class="section">
+                        <div data-key="56" class="key h-style"></div>
+                        <div class="label">
+                            <kbd>8</kbd>
+                            <span class="sound">tom</span>
+                        </div>
+                    </div>
+                    <div class="section">
+                        <div data-key="57" class="key i-style"></div>
+                        <div class="label">
+                            <kbd>9</kbd>
+                            <span class="sound">crash</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <audio id="clap" data-key="49" src="{{ url_for('static', filename='sound/Clap.wav') }}"></audio>
+    <audio id="hihat" data-key="50" src="{{ url_for('static', filename='sound/Hihat.wav') }}"></audio>
+    <audio id="kick1" data-key="51" src="{{ url_for('static', filename='sound/Kick1.wav') }}"></audio>
+    <audio id="openhat" data-key="52" src="{{ url_for('static', filename='sound/Openhat.wav') }}"></audio>
+    <audio id="kick2" data-key="53" src="{{ url_for('static', filename='sound/Kick2.wav') }}"></audio>
+    <audio id="ride" data-key="54" src="{{ url_for('static', filename='sound/Ride.wav') }}"></audio>
+    <audio id="snare" data-key="55" src="{{ url_for('static', filename='sound/Snare.wav') }}"></audio>
+    <audio id="tom" data-key="56" src="{{ url_for('static', filename='sound/Tom.wav') }}"></audio>
+    <audio id="crash" data-key="57" src="{{ url_for('static', filename='sound/Crash.wav') }}"></audio>
+
+    <br/><br/>
+
+    <!-- /.container -->
+
+    <!-- Footer -->
+    <footer class="py-2 bg-dark fixed-bottom">
+        <div class="container">
+            <p class="m-0 text-center text-secondary">Copyright &copy; Beatsprod - 2018</p>
+        </div>
+        <!-- /.container -->
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/bootstrap.min.js')}}"></script>
+    <script src="{{ url_for('static', filename='js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/ion.rangeSlider.min.js')}}"></script>
+    <script  src="{{ url_for('static', filename='js/sampler.js')}}"></script>
+    <script src="{{ url_for('static', filename='js/keyboard.js')}}"></script>
+    <script src="{{ url_for('static', filename='js/personnal-addon.js') }}"></script>
+
+</body>
+
+</html>

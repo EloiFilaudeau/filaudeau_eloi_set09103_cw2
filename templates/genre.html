@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+   <meta name="description" content="">
+   <meta name="author" content="">
+
+   <title>Beatsprod</title>
+
+   <!-- Bootstrap core CSS -->
+   <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet" />
+   <link href="{{ url_for('static', filename='css/all.min.css') }}" rel="stylesheet">
+   <!-- Custom styles for this template -->
+   <link href="{{ url_for('static', filename='css/round-about.css') }}" rel="stylesheet">
+   <style>.img_gray{transition:.25s;}.img_gray:hover{transition:.25s;filter:opacity(80%);box-shadow:0px 0px 20px #B4B4B4;}</style>
+
+</head>
+
+<body>
+
+   <!-- Navigation -->
+   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+      <div class="container">
+         <a class="navbar-brand" href="{{url_for('root')}}">Beatsprod</a>
+         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+         </button>
+         <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                   <a class="nav-link" href="{{url_for('home')}}">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{url_for('beats')}}">Beats</a>
+                </li>
+                <li class="nav-item active">
+                   <a class="nav-link" href="#">Genre<span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                   <a class="nav-link" href="{{url_for('beatmaker')}}">Beatmaker</a>
+                </li>
+                <li class="nav-item">
+                   <a class="nav-link" href="{{url_for('sampler')}}">Sampler</a>
+                </li>
+                <li class="nav-item">
+                   <a class="nav-link" href="{{url_for('logout')}}">{% if session['user'] %}Logout <i class="fa fa-sign-out-alt"></i>{% else %}Login <i class="fa fa-sign-in-alt"></i>{% endif %}</a>
+                </li>
+            </ul>
+         </div>
+      </div>
+   </nav>
+
+   <!-- Page Content -->
+   <div class="container">
+
+      <!-- Team Members Row -->
+      <div class="row">
+         <div class="col-lg-12 my-3"></div>
+         <div class="col-lg-4 col-sm-6 text-center mb-4">
+            <a href="{{url_for('get_genre', name='rap-hiphop')}}">
+                <img class="rounded-circle img-fluid d-block mx-auto img_gray" src="{{url_for('static', filename='img/rap_rounded.jpg')}}" alt="">
+            </a>
+            <h3 class="my-2">Rap/Hiphop</h3>
+         </div>
+         <div class="col-lg-4 col-sm-6 text-center mb-4">
+            <a href="{{url_for('get_genre', name='trap')}}">
+                <img class="rounded-circle img-fluid d-block mx-auto img_gray" src="{{url_for('static', filename='img/trap_rounded.jpg')}}" alt="">
+            </a>
+            <h3 class="my-2">Trap</h3>
+         </div>
+         <div class="col-lg-4 col-sm-6 text-center mb-4">
+            <a href="{{url_for('get_genre', name='afrotrap')}}">
+                <img class="rounded-circle img-fluid d-block mx-auto img_gray" src="{{url_for('static', filename='img/afrotrap_rounded.jpg')}}" alt="">
+            </a>
+            <h3 class="my-2">Afro Trap</h3>
+         </div>
+         <div class="col-lg-4 col-sm-6 text-center mb-4">
+            <a href="{{url_for('get_genre', name='reggae')}}">
+                <img class="rounded-circle img-fluid d-block mx-auto img_gray" src="{{url_for('static', filename='img/reggae_rounded.jpg')}}" alt="">
+            </a>
+            <h3 class="my-2">Reggae</h3>
+         </div>
+         <div class="col-lg-4 col-sm-6 text-center mb-4">
+            <a href="{{url_for('get_genre', name='rnb')}}">
+                <img class="rounded-circle img-fluid d-block mx-auto img_gray" src="{{url_for('static', filename='img/rnb_rounded.jpg')}}" alt="">
+            </a>
+            <h3 class="my-2">Rnb
+            </h3>
+         </div>
+         <div class="col-lg-4 col-sm-6 text-center mb-4">
+            <a href="{{url_for('get_genre', name='pop')}}">
+                <img class="rounded-circle img-fluid d-block mx-auto img_gray" src="{{url_for('static', filename='img/pop_rounded.jpg')}}" alt="">
+            </a>
+            <h3 class="my-2">Pop</h3>
+         </div>
+      </div>
+
+   </div>
+   <!-- /.container -->
+
+   <!-- Footer -->
+   <footer class="py-2 bg-dark fixed-bottom">
+      <div class="container">
+         <p class="m-0 text-center text-secondary">Copyright &copy; Beatsprod - 2018</p>
+      </div>
+      <!-- /.container -->
+   </footer>
+
+   <!-- Bootstrap core JavaScript -->
+   <script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+   <script src="{{ url_for('static', filename='js/bootstrap.bundle.min.js') }}"></script>
+   <script src="{{ url_for('static', filename='js/personnal-addon.js') }}"></script>
+
+</body>
+
+</html>
