@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+   <meta name="description" content="">
+   <meta name="author" content="">
+
+   <title>Error</title>
+   <link rel="icon" href="{{ url_for('static', filename='img/favicon.ico') }}" />
+
+   <!-- Bootstrap core CSS -->
+   <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet" />
+   <link href="{{ url_for('static', filename='css/all.min.css') }}" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top fixed-top">
+       <div class="container">
+          <a class="navbar-brand" href="#">Beatsprod</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+             <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarResponsive">
+             <ul class="navbar-nav ml-auto">
+                 <li class="nav-item">
+                     <a class="nav-link" href="{{url_for('home')}}">Home</a>
+                 </li>
+                 <li class="nav-item">
+                     <a class="nav-link" href="{{url_for('beats')}}">Beats</a>
+                 </li>
+                 <li class="nav-item">
+                    <a class="nav-link" href="{{url_for('genre')}}">Genre</a>
+                 </li>
+                 <li class="nav-item">
+                    <a class="nav-link" href="{{url_for('beatmaker')}}">Beatmaker</a>
+                 </li>
+                 <li class="nav-item">
+                     <a class="nav-link" href="{{url_for('sampler')}}">Sampler</a>
+                 </li>
+                 <li class="nav-item">
+                     <a class="nav-link" href="{{url_for('logout')}}">Login <i class="fa fa-sign-in-alt"></i></a>
+                 </li>
+             </ul>
+          </div>
+       </div>
+    </nav>
+
+    <br/><br/><br/>
+    <div class="container mt-5">
+        <div class="alert alert-danger" role="alert">
+            <h4 class="alert-heading">Error {{nb}}</h4>
+            <p>{{message}}</p>
+            <hr>
+            <p class="mb-0 text-muted">{{error}}</p>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="py-2 bg-dark fixed-bottom">
+       <div class="container">
+          <p class="m-0 text-center text-secondary">Copyright &copy; Beatsprod - 2018</p>
+       </div>
+    </footer>
+
+   <!-- Bootstrap core JavaScript -->
+   <script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+   <script src="{{ url_for('static', filename='js/bootstrap.bundle.min.js') }}"></script>
+
+</body>
+
+</html>
