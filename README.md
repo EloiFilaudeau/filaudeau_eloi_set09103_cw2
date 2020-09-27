@@ -1,4 +1,4 @@
-# MAO Web app - midi integration (filaudeau_eloi_set09103_cw2)
+# MAO Web app - midi integration (set09103_cw2)
 http://eloifilaudeau.pythonanywhere.com/sampler/
 
 A web application developped in <code>html, css, javascript</code> and <code>python</code> thanks to the framework <code>Flask</code>.
